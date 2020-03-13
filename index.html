@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+  <html>
+    <head>
+      <title>sam's bookmarklets page</title>
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="https://user-images.githubusercontent.com/10165959/72994059-5e30f900-3dee-11ea-8ed2-54fa62961538.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="https://user-images.githubusercontent.com/10165959/72994194-8f112e00-3dee-11ea-9673-ae29fee0a9aa.png"
+      />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="https://user-images.githubusercontent.com/10165959/72994195-90daf180-3dee-11ea-9708-50d94ef2a77a.png"
+      />
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+      />
+      <style>
+        body {
+          text-align: center;
+          display: flex;
+          min-height: 100vh;
+          flex-direction: column;
+        }
+        .shadow {
+          width: 300px;
+          box-shadow: 3px 3px 5px 6px #ccc;
+        }
+        .page-footer {
+          background: #0000001a;
+        }
+        main {
+          flex: 1 0 auto;
+        }
+      </style>
+    </head>
+    <body>
+      <header>
+        <h1>sam's bookmarklets page</h1>
+        <div>some bookmarklets for usefull things</div>
+      </header>
+      <main>
+        <div class="row">
+          <div class="col s6">
+            <h3>bookmarklets</h3>
+            
+      <div>
+          
+      <h4>
+        <a
+          class="bookmarklet"
+          href="javascript:(function()%7B%22use%20strict%22%3B!function()%7Bvar%20n%3D0%3Bdocument.body.style%3D%22height%3A%20100%25%3B%22%2Cdocument.getElementsByTagName(%22html%22)%5B0%5D.style%3D%22height%3A%20100%25%3B%22%2Cdocument.body.innerHTML%3D%22%22%3Bvar%20e%3Ddocument.createElement(%22div%22)%3Be.style%3D%22display%3Aflex%3B%20%20%20%20%20height%3A%20100%25%3B%22%2Ce.id%3D%22app%22%2Ce.innerHTML%3D%22%5Cn%20%20%3Cdiv%20id%3D'sidebar'%20style%3D'background-color%3A%20black%3B%20width%3A%20150px%3B'%3E%3C%2Fdiv%3E%5Cn%20%20%3Cdiv%20id%3D'chat'%20style%3D'width%3A%20-webkit-fill-available%3B'%3E%5Cn%20%20%20%20%3Cdiv%20id%3D'chats'%20style%3D'width%3A%20100%25%3B%20padding%3A%208px%3B%20display%3A%20flex%3B%20flex-direction%3A%20column%3B%20justify-content%3A%20flex-end%3B%20height%3A%2090%25%3B'%3E%3C%2Fdiv%3E%5Cn%20%20%20%20%3Cdiv%20id%3D'chat-input-wrapper'%20style%3D'width%3A%20100%25%3Bbackground-color%3A%20%23d8b1d8%3Bpadding%3A%208px%3Bdisplay%3A%20flex%3Bjustify-content%3A%20center%3B'%3E%5Cn%20%20%20%20%20%20%3Cinput%20autofocus%20id%3D'chat-input'%20placeholder%3D'Type%20a%20chat...'%20style%3D'padding%3A%204px%208px%3B%20font-size%3A%201em%3B%20width%3A%2095%25%3B%20margin%3A%204px%3B'%3E%3C%2Finput%3E%5Cn%20%20%20%20%3C%2Fdiv%3E%5Cn%20%20%3C%2Fdiv%3E%5Cn%20%20%22%2Cdocument.body.appendChild(e)%3Bvar%20t%3Ddocument.getElementById(%22chat-input%22)%2Cd%3Ddocument.getElementById(%22chats%22)%2Ci%3Dwindow.console%2Ca%3DObject.keys(i).reduce(function(e%2Ct)%7Breturn%20e%5Bt%5D%3Dfunction()%7Bvar%20e%3Ddocument.createElement(%22div%22)%3Be.style%3D%22font-family%3A%20sans-serif%3B%20padding%3A%202px%200px%3B%20%22%2B(n%252%3F%22background-color%3A%20%23ececec%3B%22%3A%22%22)%2Cn%2B%2B%2Ce.innerHTML%3Darguments%5B0%5D%2Cd.append(e)%2Ci%5Bt%5D.apply(window%2Carguments)%7D%2Ce%7D%2C%7B%7D)%3Bt.addEventListener(%22keyup%22%2Cfunction(e)%7B13%3D%3D%3De.keyCode%26%26(e.preventDefault()%2Cconsole.log(t.value)%2Ct.value%3D%22%22)%7D)%2Cwindow.console%3Da%7D()%3B%7D)()"
+        >
+          create-chat
+        </a>
+      </h4>
+<p>creates chats on websites</p>
+
+      </div>
+    
+      <div>
+          
+      <h4>
+        <a
+          class="bookmarklet"
+          href="javascript:(function()%7B%22use%20strict%22%3B!function()%7Bvar%20g%3Dwindow.jQuery%2Cu%3D%22%23444%22%2Cs%3D!!g(%22%23body%22).length%2Cl%3Ds%3F%22inherit%22%3Ag(%22body%20%3E%20.content%22).css(%22background-color%22)%2Ch%3Dg(%22%3Cdiv%2F%3E%22).css(%7Bposition%3A%22fixed%22%2Ctop%3A%220%22%2Cleft%3A%220%22%2Cwidth%3A%22150px%22%2Cheight%3A%22100%25%22%2Ccolor%3A%22white%22%2CzIndex%3A100%7D).append(g(%22%3Cdiv%2F%3E%22).css(%7Bposition%3A%22absolute%22%2Cwidth%3A%22100%25%22%2Cheight%3A%22100%25%22%2C%22background-color%22%3A%22black%22%2Copacity%3A%220.8%22%2C%22z-index%22%3A-1%7D))%2Cp%3Dg(%22%3Cdiv%2F%3E%22).css(%7Bposition%3A%22absolute%22%2Cpadding%3A%221em%22%2Cborder%3A%221px%20solid%20black%22%2C%22margin-top%22%3A%22-0.5em%22%2C%22box-shadow%22%3A%220px%200px%2012px%20%23000%22%2Cwidth%3A%2280%25%22%2Copacity%3A%220.95%22%2Cleft%3As%3Fh.width()%2B%22px%22%3A%220px%22%2C%22font-size%22%3As%3F%2212px%22%3A%2290%25%22%2Cdisplay%3A%22none%22%2C%22background-color%22%3Al%2C%22z-index%22%3A1e4%7D).html(%22%26nbsp%3B%22).addClass(%22content%22)%3Bg(%22body%22).append(p)%3Bvar%20a%3Dg(%22%3Cdiv%2F%3E%22).css(%7Bposition%3A%22absolute%22%2C%22box-sizing%22%3A%22border-box%22%2C%22border-top%22%3A%2237px%20solid%20%23595959%22%2Cwidth%3A%22100%25%22%2Cheight%3A%22100%25%22%2Cbottom%3A0%2C%22z-index%22%3A0%7D)%3Bh.append(a)%2Ch.append(g(%22%3Cdiv%3EGraphFi%3C%2Fdiv%3E%22).css(%7B%22border-top%22%3A%223px%20solid%20%239cc754%22%2Cposition%3A%22absolute%22%2C%22font-weight%22%3A%22bold%22%2Ctop%3A0%2Cleft%3A0%2Cwidth%3A%22100%25%22%7D))%2Ch.append(g(%22%3Ca%2F%3E%22).attr(%22href%22%2C%22%22).click(function()%7Breturn%20window.location.reload()%2C!1%7D).html(%22%26times%3B%22).css(%7Bposition%3A%22absolute%22%2Ccolor%3A%22%23eee%22%2Ctop%3A0%2Cright%3A0%7D))%2Cg(%22body%22).append(h)%2Cg(%22body%22).css(%7B%22margin-left%22%3A%22150px%22%7D)%3Bvar%20i%3Dg(%22%3Cdiv%2F%3E%22).html(%22Loading%20GraphFi...%22).css(%7Bposition%3A%22absolute%22%2Ctop%3A%222em%22%2Cpadding%3A%221em%22%2Cleft%3A%220em%22%2C%22background-color%22%3A%22black%22%2Ccolor%3A%22white%22%2C%22font-weight%22%3A%22bold%22%2C%22z-index%22%3A100%7D)%3Bg(h).append(i)%3Bvar%20b%2Cm%2Cw%2Cx%2Cr%2Cd%2Cf%2Cv%2Ck%2Co%2Cy%2Cz%2CT%2CM%3D%5B%5D%2Ce%3D5%2CC%3D1%2CS%3D0%3Bfunction%20n()%7Bi.show()%2Cg(%22div.comments%22).each(function(e%2Ct)%7Bif(!(e%3CM.length))%7Bvar%20i%3Dg(t)%2Co%3Di.prev(%22a%22)%3Bif(0%3Co.length)%7Bvar%20n%3D0%2Ca%3D%22%22%2Cr%3D%22%22%3Bi.find(%22span.smallcopy%20a%22).each(function(e%2Ct)%7Bvar%20i%3Dg(t).attr(%22href%22)%3Bi%26%26(-1!%3Di.indexOf(%22%2Ffavorited%2F%22)%3Fn%3DparseInt(g(t).text().replace(%2F%5B%5E%5Cd%5D%2F%2C%22%22))%3A-1!%3Di.indexOf(%22%2Fuser%2F%22)%3Fa%3Dg(t).text()%3A-1!%3Di.indexOf(%22%23%22)%26%26(r%3Dg(t).text()))%7D)%2CC%3DMath.max(n%2CC)%2Cq.push(%7Bfavorites%3An%2Clink%3A%22%23%22%2Bg(o).attr(%22name%22)%2Cauthor%3Aa%2Ctime%3Ar%2Ctext%3Ag.trim(i.text()).replace(%2F%5Cs%2B%2Fg%2C%22%20%22)%7D)%2CM.push(i)%7D%7D%7D)%2Cwindow.setTimeout(function()%7BO()%7D%2C0)%7Dfunction%20t()%7Bi.html(%22Adding%20references...%22)%2Cwindow.setTimeout(function()%7Bg(%22.graphfi%22).remove()%2Cg.each(M%2Cfunction(o%2Ca)%7Bvar%20i%3Dq%5Bo%5D.quoteElements%3Bif(!i)return!1%3Bfor(var%20e%20in%20i)!function(e)%7Bvar%20t%3Dg(%22%3Ca%2F%3E%22).attr(%7Bclass%3A%22graphfi%22%2Chref%3Aq%5Be%5D.link%7D).html(%22%26gt%3B%26nbsp%3B%22)%3Bt.hover(function()%7Bp.show()%2Cp.html(M%5Be%5D.html())%2Cp.css(%22top%22%2Ct.offset().top%2B25%2B%22px%22)%7D%2Cfunction()%7Bp.hide()%7D)%2Ci%5Be%5D.before(t)%7D(e)%3Bvar%20r%3Dq%5Bo%5D.replies%3Bif(r%26%260%3Cr.length)%7Bvar%20t%3Dg(%22%3Ca%2F%3E%22).attr(%7Bhref%3A%22%22%2Cclass%3A%22graphfi%20replies%22%7D).html(r.length%2B(1%3Cr.length%3F%22%20replies%22%3A%22%20reply%22))%3Bt.click(function()%7Bvar%20e%3D%22graphfi-replies-c%22%2Bo%3Bfunction%20t()%7Breturn%20g(%22.%22%2Be).remove()%2Ca.removeClass(%22graphfi-replies-open%22)%2C!1%7Dif(a.hasClass(%22graphfi-replies-open%22))return%20t()%3Ba.addClass(%22graphfi-replies-open%22)%3Bvar%20i%3Da.offset().left%3Bs%7C%7C(i-%3Dh.width())%3Bvar%20n%3Dg(%22%3Cdiv%2F%3E%22).css(%7Bposition%3A%22absolute%22%2Cleft%3Ai%2B%22px%22%2Ctop%3Aa.offset().top%2Ba.height()%2B%22px%22%2Cwidth%3Aa.width()-25%2B%22px%22%2C%22box-shadow%22%3A%220px%2012px%2012px%20%22%2Bu%2C%22background-color%22%3Al%2C%22z-index%22%3A10%2Cpadding%3A%221em%22%7D).addClass(e).addClass(%22content%22)%3Breturn%20n.append(g(%22%3Ca%2F%3E%22).html(%22close%20(X)%22).attr(%22href%22%2C%22%22).click(t).css(%7Bposition%3A%22absolute%22%2Cright%3A%221em%22%2Ctop%3A%221em%22%2C%22font-size%22%3As%3F%2212px%22%3A%2290%25%22%2C%22z-index%22%3A1%7D))%2Cg.each(r%2Cfunction(e%2Ct)%7Bvar%20i%3DM%5Bt%5D%2Co%3Di.clone(!0)%3Bo.addClass(%22graphfi-clone%20content%22)%2Co.find(%22a.replies%22).click(function()%7Breturn%20n.remove()%2Cwindow.location.href%3Dq%5Bt%5D.link%2Cg(i).mouseover()%2C!1%7D)%2Co.bind(%22click.graphfi%22%2Cfunction()%7Bg(%22.graphfi-clone%22).css(%22box-shadow%22%2C%22none%22)%2Co.css(%7B%22box-shadow%22%3A%220px%200px%2012px%20%22%2Bu%7D)%7D)%2Cn.append(o)%2Cn.append(%22%3Cbr%2F%3E%3Cbr%2F%3E%22)%7D)%2Cn.append(g(%22%3Ca%2F%3E%22).html(%22close%20(X)%22).attr(%22href%22%2C%22%22).click(t).css(%7Bposition%3A%22absolute%22%2Cright%3A%221em%22%2Cbottom%3A%221em%22%2C%22font-size%22%3As%3F%2212px%22%3A%2290%25%22%7D))%2Cg(%22body%22).append(n)%2C!1%7D)%2Ca.find(%22span.smallcopy%22).append(g(%22%3Cspan%2F%3E%22).attr(%22class%22%2C%22graphfi%22).append(%22%5B%22%2Ct%2C%22%5D%22))%7D%7D)%2CN()%2Ci.html(%22Doing%20a%20jig...%22)%2Cwindow.setTimeout(function()%7Bvar%20t%3BP()%2Co.unbind(%22.graphfi%22)%2Co.bind(%22mouseout.graphfi%22%2Cfunction()%7BT%3Dnull%2CY()%2Cp.hide()%7D)%2Co.bind(%22mousemove.graphfi%22%2Cfunction(e)%7Bif(0!%3DM.length)%7Bvar%20t%3De.pageY-f%2Ci%3DparseInt(w%2Fd*t%2Fb)%3Bif(i!%3DT)%7BT%3Di%2CY()%3Bvar%20o%2Cn%3DM%5BT%2BS%5D%3Bp.show()%2Cp.html(n.html())%2Co%3Dt%3Ea.height()%2F2%7C%7Ct%2Bp.height()%3Ea.height()%3FMath.max(f%2Ce.pageY-p.height())%3Ae.pageY%2Cp.css(%22top%22%2Co%2B%22px%22)%7D%7D%7D)%2Co.bind(%22click.graphfi%22%2Cfunction(e)%7Bvar%20t%3De.pageY-f%2Ci%3DparseInt(w%2Fd*t%2Fb)%3Bi!%3Dz%26%26(z%3Di%2CY())%2Cnull!%3Dz%26%26g(window).scrollTop(M%5Bz%2BS%5D.offset().top-57)%2Cp.hide()%7D)%2Cg(M).unbind(%22.graphfi%22)%2Cg(M).each(function(t%2Ce)%7Bg(e).bind(%22click.graphfi%22%2Cfunction()%7Bvar%20e%3Dt-S%3Be!%3Dz%26%26(z%3De%2CY())%7D)%7D)%2Cg(window).unbind(%22.graphfi%22)%2Cg(window).bind(%22scroll.graphfi%22%2Cfunction()%7Bif(f%3Do.offset().top%2Cfunction()%7Bvar%20e%3Dg(window).scrollTop()%2Ct%3De%2Br%2Ci%3D-1%2Co%3DM.length-1%2Cn%3D-1%3Bfor(%3Bi%3Co%3B)if(n%3DMath.floor((o-i)%2F2)%2Bi%2Cq%5Bn%5D%26%26q%5Bn%5D.offset%3Ce)i%3Dn%2B1%3Belse%7Bif(!(q%5Bn%5D%26%26q%5Bn%5D.offset%3Ee))break%3Bo%3Dn-1%7Dv%3DMath.min(n%2CM.length-1)%2Ck%3DMath.min(n%2B1%2CM.length-1)%3Bfor(%3Bq%5Bk%5D%26%26q%5Bk%5D.offset%3Ct%3B)k%2B%2B%7D()%2Cx%3CM.length)%7Bif(0%3Cv)%7Bvar%20e%3DMath.max(0%2CMath.min(M.length-x-1%2Cv-10))%3BisNaN(e)%7C%7Ce%3D%3DS%7C%7C(z%2B%3DS-e%2CS%3De)%7D%7Delse%20S%3D0%3BY()%7D)%2Cg(window).bind(%22resize.graphfi%22%2Cfunction()%7BP()%2Cg(window).scroll()%2CN()%2CY()%7D)%2Cg(window).bind(%22DOMNodeInserted.graphfi%22%2Cfunction(e)%7Bg(e.relatedNode).is(%22%23newcomments%22)%26%26(t%26%26clearTimeout(t)%2Ct%3Dwindow.setTimeout(n%2C10))%7D)%2Cg(window).scroll()%2C0%3CM.length%26%26i.hide()%7D%2C0)%7D%2C0)%7Dwindow.setTimeout(n%2C0)%3Bvar%20q%3D%5B%5D%3Bvar%20c%3D0%3Bfunction%20I(e%2Ct)%7Bvar%20i%3Dq%5Be%5D.replies%3Bnull%3D%3Di%26%26(i%3D%5B%5D)%2Ci.push(t)%2Cq%5Be%5D.replies%3Di%7Dfunction%20O()%7Bi.html(%22Parsing%20comments%3A%20%22%2Bc%2B%22%2F%22%2BM.length)%3Bfor(var%20a%3Dc%3Ba%3CM.length%3B)%7Bvar%20e%3DM%5Ba%5D%2Cr%3D%5B%5D%2Cn%3D%7B%7D%3Bif(e.children(%22blockquote%2C%20i%2C%20em%22).each(function(e%2Ct)%7Bvar%20i%3Dg.trim(g(t).text().replace(%2F%5Cs%2B%2Fg%2C%22%20%22))%3Bif(20%3Ci.length)for(var%20o%3D0%3Bo%3Ca%3Bo%2B%2B)if(a!%3Do%26%26-1%3D%3Dg.inArray(o%2Cr)%26%26-1!%3Dq%5Bo%5D.text.indexOf(i))%7BI(o%2Ca)%2Cr.push(o)%2Cn%5Bo%5D%3Dg(t)%3Bbreak%7D%7D)%2Ce.children(%22a%22).each(function(e%2Ct)%7Bvar%20i%3Dg(t).attr(%22href%22)%3Bif(i%26%26-1!%3Di.indexOf(%22%23%22))for(var%20o%3D%22%23%22%2Bi.split(%22%23%22)%5B1%5D%2Cn%3D0%3Bn%3Ca%3Bn%2B%2B)%7Bif(q%5Bn%5D.link%3D%3Do%26%26-1%3D%3Dg.inArray(n%2Cr))%7BI(n)%2Cr.push(n)%3Bbreak%7D%7D%7D)%2Cq%5Ba%5D.quotes%3Dr%2Cq%5Ba%5D.quoteElements%3Dn%2C%2B%2Ba%25100%3D%3D0)return%20c%3Da%2Cvoid%20window.setTimeout(O%2C0)%7Dc%3Da%2Ct()%7Dfunction%20N()%7Bfor(var%20e%3D0%3Be%3CM.length%3Be%2B%2B)q%5Be%5D.offset%3DM%5Be%5D.offset().top%7Dfunction%20P()%7B0%3D%3DM.length%26%26(i.html(%22Uh%20oh!%20%20No%20comments%20yet!%22)%2Ci.show())%2Cx%3DMath.min(M.length%2CparseInt(Math.floor(a.height()%2Fe)))%2Cb%3DM.length%3Fa.height()%2Fx%3Aa.height()%2Cm%3D150%2Cw%3Db*x%2Co%3Fo.attr(%7Bwidth%3Am%2Cheight%3Aw%7D)%3A(o%3Dg(%22%3Ccanvas%2F%3E%22).css(%7Bwidth%3A%22100%25%22%2Cheight%3A%22100%25%22%2Cposition%3A%22absolute%22%2Cleft%3A%220%22%2Ctop%3A%220%22%2Ccursor%3A%22pointer%22%2C%22z-index%22%3A-1%7D).attr(%7Bwidth%3Am%2Cheight%3Aw%7D)%2Ca.append(o)%2Cy%3Do%5B0%5D.getContext(%222d%22))%2Cd%3Do.height()%2Cr%3Dg(window).height()%7Dfunction%20Y()%7Bg(%22.graphfi-clone%22).css(%22box-shadow%22%2C%22none%22)%2Cy.clearRect(0%2C0%2Cm%2Cw)%3Bfor(var%20e%3D0%3Be%3Cx%3Be%2B%2B)%7Bvar%20t%3De%2BS%2Ci%3DM%5Bt%5D%2Co%3DT%3D%3De%2Cn%3Dz%3D%3De%2Ca%3Db%2Cr%3Dm*(q%5Bt%5D.favorites%2FC)%2Cs%3Db*e%3Bn%3F(y.fillStyle%3D%22rgba(66%2C%200%2C%200%2C%20255)%22%2Ci.css(%7B%22box-shadow%22%3A%220px%200px%2012px%20%22%2Bu%7D))%3Ao%3F(y.fillStyle%3D%22rgba(66%2C%2033%2C%200%2C%20255)%22%2Ci.css(%7B%22box-shadow%22%3A%220px%200px%2012px%20%23966%22%7D))%3Ai.css(%7B%22box-shadow%22%3A%22none%22%7D)%2Cy.strokeStyle%3D%22black%22%2Cn%7C%7Co%3F(y.beginPath()%2Cy.rect(0%2Br%2Cs%2Cm-r%2Ca)%2Cy.fill())%3Av%3C%3Dt%26%26t%3Ck%26%26(y.strokeStyle%3D%22rgba(0%2C66%2C99%2C255)%22%2Cy.fillStyle%3D%22rgba(0%2C66%2C99%2C255)%22%2Cy.beginPath()%2Cy.rect(0%2Br%2Cs%2Cm-r%2Ca)%2Cy.fill()%2Cy.stroke())%2Cy.fillStyle%3Dn%3F%22rgba(255%2C%200%2C%200%2C%20255)%22%3Ao%3F%22rgba(255%2C%20128%2C%200%2C%20255)%22%3A%22rgba(128%2C%20128%2C%20128%2C%20128)%22%2Cy.beginPath()%2Cy.rect(0%2Cs%2Cr%2Ca)%2Cy.fill()%7Dfor(var%20l%3D0%3Bl%3CM.length%3Bl%2B%2B)for(var%20h%3Dq%5Bl%5D.quotes%2Cp%3D0%3Bp%3Ch.length%3Bp%2B%2B)%7Bvar%20d%3Dh%5Bp%5D%3Bif(d!%3Dl)%7By.beginPath()%2Cy.strokeStyle%3Dd-S%3D%3Dz%7C%7Cl-S%3D%3Dz%3F%22red%22%3Ad-S%3D%3DT%7C%7Cl-S%3D%3DT%3F%22orange%22%3A%22gray%22%3Bvar%20f%3D.5*(l-d)%2Bd%2Cc%3D-S*b%2Bb%2F2%3By.moveTo(m%2Cc%2Bd*b)%2Cy.quadraticCurveTo(.5*m-m*((l-d%2B1)%2FM.length)%2Cc%2Bf*b%2Cm%2Cc%2Bl*b)%2Cy.stroke()%7D%7D%7D%7D()%3B%7D)()"
+        >
+          graphfi
+        </a>
+      </h4>
+<p>Metafilter comment graphing tool or</p>
+
+      </div>
+    
+      <div>
+          
+      <h4>
+        <a
+          class="bookmarklet"
+          href="javascript:(function()%7B%22use%20strict%22%3Bvar%20_createClass%3Dfunction()%7Bfunction%20c(e%2Ct)%7Bfor(var%20n%3D0%3Bn%3Ct.length%3Bn%2B%2B)%7Bvar%20c%3Dt%5Bn%5D%3Bc.enumerable%3Dc.enumerable%7C%7C!1%2Cc.configurable%3D!0%2C%22value%22in%20c%26%26(c.writable%3D!0)%2CObject.defineProperty(e%2Cc.key%2Cc)%7D%7Dreturn%20function(e%2Ct%2Cn)%7Breturn%20t%26%26c(e.prototype%2Ct)%2Cn%26%26c(e%2Cn)%2Ce%7D%7D()%3Bfunction%20_classCallCheck(e%2Ct)%7Bif(!(e%20instanceof%20t))throw%20new%20TypeError(%22Cannot%20call%20a%20class%20as%20a%20function%22)%7D!function()%7Bfunction%20c(e%2Ct)%7Bvar%20n%3D2%3Carguments.length%26%26void%200!%3D%3Darguments%5B2%5D%26%26arguments%5B2%5D%3B_classCallCheck(this%2Cc)%2Cthis.messageSelector%3De%2Cthis.clickedIndexes%3D%7B%7D%2Cthis.targetContent%3Dt%2Cthis.repeatClicks%3Dn%7Dnew(_createClass(c%2C%5B%7Bkey%3A%22startClicking%22%2Cvalue%3Afunction()%7Bvar%20n%3Dthis%3Bwindow.setInterval(function()%7Bvar%20e%3Dwindow.document.querySelectorAll(n.messageSelector)%3B0%3Ce.length%26%26Array.from(e).forEach(function(e%2Ct)%7Be.textContent!%3Dn.targetContent%7C%7Cn.clickedIndexes%5Bt%5D%26%26!n.repeatClicks%7C%7C(n.clickedIndexes%5Bt%5D%3D!0%2Ce.click())%7D)%7D%2C2e3)%7D%7D%5D)%2Cc)(%22button%3Anth-child(3)%20%3E%20span%22%2C%223%22%2C!0).startClicking()%7D()%3B%7D)()"
+        >
+          point-three
+        </a>
+      </h4>
+<p>points three in slack channels</p>
+
+      </div>
+    
+      <div>
+          
+      <h4>
+        <a
+          class="bookmarklet"
+          href="javascript:(function()%7B%22use%20strict%22%3BArray.prototype.forEach.call(document.querySelectorAll(%22.js-comment-delete%20button%22)%2Cfunction(t)%7Bt.closest(%22.js-comment-container%22).querySelector('a.author%5Bhref%3D%22%2Fsvc-teamcity%22%5D')%26%26(t.removeAttribute(%22data-confirm%22)%2Ct.click())%7D)%3B%7D)()"
+        >
+          remove-tc
+        </a>
+      </h4>
+<p>remove team city comments from a github PR</p>
+
+      </div>
+    
+          </div>
+          <div class="col s6">
+            <h4>installing a bookmarklet</h4>
+            <p>
+              drag the link into your toolbar, and click on it to run the
+              bookmarklet
+            </p>
+            <img
+              class="shadow"
+              src="https://user-images.githubusercontent.com/10165959/72991898-b960ec80-3dea-11ea-89c5-3c33f6d266c2.gif"
+              alt="installing a bookmarklet"
+            />
+          </div>
+        </div>
+      </main>
+      <footer class="page-footer">
+        <div class="row">
+          <a class="col s3" href="https://samthomas.io">samthomas.io</a>
+          <a class="col s3" href="https://samuelfullerthomas.com"
+            >samuelfullerthomas.com</a
+          >
+          <a class="col s3" href="https://thomasarchive.com">thomasarchive.com</a>
+          <a class="col s3" href="https://github.com/samuelfullerthomas"
+            >github.com/samuelfullerthomas</a
+          >
+        </div>
+      </footer>
+    </body>
+  </html>
+  
