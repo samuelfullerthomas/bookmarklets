@@ -2,20 +2,25 @@
   "name": "bookmarklets",
   "version": "1.0.0",
   "description": "Personal Bookmarklets",
-  "main": "build.js",
+  "main": "scripts/build.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samuelfullerthomas/bookmarklets.git"
+  },
+  "scripts": {
+    "lint": "eslint scripts && eslint bookmarklets",
+    "build": "node scripts/build.js",
+    "test": "npm run lint",
+    "watch": "nodemon -e js,md scripts/build.js"
   },
   "author": "Sam Thomas",
   "license": "ISC",
   "homepage": "https://github.com/samuelfullerthomas/bookmarklets",
   "devDependencies": {
-    "bookmarklet": "^3.0.0",
     "eslint": "^6.8.0",
     "markdown-it": "^13.0.1",
     "nodemon": "^2.0.2",
     "prettier": "^1.19.1",
-    "standard": "^14.3.1"
+    "terser": "^5.16.5"
   }
 }
