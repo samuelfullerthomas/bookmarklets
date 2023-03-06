@@ -2,10 +2,13 @@
   "name": "bookmarklets",
   "version": "1.0.0",
   "description": "Personal Bookmarklets",
-  "main": "build.js",
+  "main": "scripts/build.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/samuelfullerthomas/bookmarklets.git"
+  },
+  "scripts": {
+    "lint": "eslint scripts && eslint bookmarklets"
   },
   "author": "Sam Thomas",
   "license": "ISC",
