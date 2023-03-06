@@ -8,7 +8,10 @@
     "url": "git+https://github.com/samuelfullerthomas/bookmarklets.git"
   },
   "scripts": {
-    "lint": "eslint scripts && eslint bookmarklets"
+    "lint": "eslint scripts && eslint bookmarklets",
+    "build": "node scripts/build.js",
+    "test": "npm run lint",
+    "watch": "nodemon -e js,md scripts/build.js"
   },
   "author": "Sam Thomas",
   "license": "ISC",
