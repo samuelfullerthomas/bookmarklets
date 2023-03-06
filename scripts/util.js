@@ -1,10 +1,14 @@
-const { convert } = require('bookmarklet');
+/* eslint-disable max-len */
 const { readFileSync } = require('fs');
 const { join } = require('path');
+const { minify } = require('terser');
 const MarkdownIt = require('markdown-it');
+
 const md = new MarkdownIt();
 
 function createHTML(bookmarkletHTML) {
+  const githubImageBucket =
+    'https://user-images.githubusercontent.com/10165959/';
   return `<!DOCTYPE html>
   <html>
     <head>
@@ -13,18 +17,18 @@ function createHTML(bookmarkletHTML) {
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href="https://user-images.githubusercontent.com/10165959/72994059-5e30f900-3dee-11ea-8ed2-54fa62961538.png"
+        href="${githubImageBucket}72994059-5e30f900-3dee-11ea-8ed2-54fa62961538.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href="https://user-images.githubusercontent.com/10165959/72994194-8f112e00-3dee-11ea-9673-ae29fee0a9aa.png"
+        href="${githubImageBucket}72994194-8f112e00-3dee-11ea-9673-ae29fee0a9aa.png"
       />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href="https://user-images.githubusercontent.com/10165959/72994195-90daf180-3dee-11ea-9708-50d94ef2a77a.png"
+        href="${githubImageBucket}72994195-90daf180-3dee-11ea-9708-50d94ef2a77a.png"
       />
       <link
         rel="stylesheet"
@@ -68,7 +72,7 @@ function createHTML(bookmarkletHTML) {
             </p>
             <img
               class="shadow"
-              src="https://user-images.githubusercontent.com/10165959/72991898-b960ec80-3dea-11ea-89c5-3c33f6d266c2.gif"
+              src="${githubImageBucket}72991898-b960ec80-3dea-11ea-89c5-3c33f6d266c2.gif"
               alt="installing a bookmarklet"
             />
           </div>
@@ -91,19 +95,22 @@ function createHTML(bookmarkletHTML) {
   `;
 }
 
-function createBookmarkletsHTML(bookmarkletsList) {
-  return bookmarkletsList.reduce((html, marklet) => {
-    const bookmarkletJS = convert(
-      readFileSync(join(__dirname, `bookmarklets/${marklet}/index.js`)),
-      {}
-    );
-    const docs = readFileSync(
-      join(__dirname, `bookmarklets/${marklet}/README.md`),
-      'utf8'
-    );
-    const bookmarkletDocs = md.render(docs).replace(
-      /<h1>(.*)<\/h1>/,
-      `
+async function createBookmarkletsHTML(bookmarkletsList) {
+  const generatedBookmarkletHTML = await Promise.all(
+    bookmarkletsList.map(async bookmarklet => {
+      const rawJS = readFileSync(
+        join(__dirname, `../bookmarklets/${bookmarklet}/index.js`)
+      ).toString();
+      const bookmarkletJS = await convert(rawJS);
+      // console.log({ rawJS });
+
+      const docs = readFileSync(
+        join(__dirname, `../bookmarklets/${bookmarklet}/README.md`),
+        'utf8'
+      ).toString();
+      const bookmarkletDocs = md.render(docs).replace(
+        /<h1>(.*)<\/h1>/,
+        `
       <h4>
         <a
           class="bookmarklet"
@@ -112,17 +119,23 @@ function createBookmarkletsHTML(bookmarkletsList) {
           $1
         </a>
       </h4>`
-    );
+      );
+      return `
+    <div>
+        ${bookmarkletDocs}
+    </div>
+  `;
+    })
+  );
 
-    html =
-      html +
-      `
-      <div>
-          ${bookmarkletDocs}
-      </div>
-    `;
-    return html;
-  }, '');
+  return generatedBookmarkletHTML.join('\n');
+}
+
+async function convert(code) {
+  const { code: minifedCode } = await minify(code);
+
+  const wrappedMinifiedCode = `(function(){${minifedCode}})()`;
+  return `javascript:${encodeURIComponent(wrappedMinifiedCode)}`;
 }
 
 module.exports = {

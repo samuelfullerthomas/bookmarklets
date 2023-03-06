@@ -7,8 +7,8 @@ bootstrap:
 	@npm install
 
 build:
-	@node build.js
+	@node scripts/build.js
 
 demo:
 	@open index.html
-	@$(BIN)/nodemon -e js,md build.js
+	@$(BIN)/nodemon -e js,md scripts/build.js

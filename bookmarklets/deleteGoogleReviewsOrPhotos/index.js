@@ -46,7 +46,5 @@
     await new Promise(resolve => setTimeout(resolve, timeout));
   }
 
-  console.log(
-    'DONE. You did a favor to your past and present self. Now, go print one of your favorite pictures and hang it on a wall, please.'
-  );
+  console.log('DONE');
 })();

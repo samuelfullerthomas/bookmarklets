@@ -123,7 +123,8 @@
   // canvas
   var canvas, ctx, selected, hovered;
 
-  // Redirect through setTimeout to allow loading message to show before blocking
+  // Redirect through setTimeout to allow loading message to show
+  // before blocking
   window.setTimeout(initialize, 0);
   function initialize() {
     loading.show();
@@ -155,7 +156,8 @@
    ****************************************************/
   var cdata = [];
   function loadComments() {
-    // Get all the comments, and extract data on favorites, author, time, and text.
+    // Get all the comments, and extract data on favorites, author, time
+    // and text.
     $('div.comments').each(function(i, comment) {
       if (i < comments.length) {
         // If we've already parsed this comment, no need to do it again.
