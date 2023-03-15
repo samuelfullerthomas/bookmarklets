@@ -102,7 +102,7 @@
       <h4>
         <a
           class="bookmarklet"
-          href="javascript:(function()%7B%5B%22octicon-git-merge%22%2C%22octicon-git-pull-request-closed%22%5D.forEach((e%3D%3E%7BArray.from(document.getElementsByClassName(e)).forEach((e%3D%3E%7Be.closest(%22.notifications-list-item%22).querySelector(%22input%22).click()%7D))%7D))%3B%7D)()"
+          href="javascript:(function()%7B%5B%22.octicon-git-merge%22%2C%22.octicon-git-pull-request-closed%22%5D.forEach((c%3D%3E%7BArray.from(document.querySelectorAll(c)).forEach((c%3D%3E%7Bconst%20o%3Dc.closest(%22.notifications-list-item%22)%3Bo%26%26o.querySelector(%22input%22).click()%7D))%7D))%3B%7D)()"
         >
           selectClosedOrMerged
         </a>
