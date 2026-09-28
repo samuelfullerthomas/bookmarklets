@@ -1,0 +1,18 @@
+{
+  // Type-checks the plain JS (and JSDoc) against browser and Node types.
+  // Nothing is compiled: esbuild does the bundling.
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    // Not strict: graphFi predates type-checking and relies on implicit any.
+    "strict": false,
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "types": ["node"],
+    "skipLibCheck": true
+  },
+  "include": ["bookmarklets", "scripts", "*.config.js"]
+}

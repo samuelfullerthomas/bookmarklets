@@ -6,8 +6,9 @@
  *
  */
 
-(function() {
-  const $ = window.jQuery;
+(function () {
+  // MetaFilter loads jQuery globally.
+  const $ = /** @type {any} */ (window).jQuery;
   var selectingShadowColor = '#444';
   var classicTheme = !!$('#body').length;
   var background = classicTheme
@@ -78,7 +79,7 @@
   bar.append(
     $('<a/>')
       .attr('href', '')
-      .click(function() {
+      .click(function () {
         // Lazy reset -- just refresh page.
         window.location.reload();
         return false;
@@ -94,18 +95,16 @@
 
   $('body').append(bar);
   $('body').css({ 'margin-left': '150px' });
-  var loading = $('<div/>')
-    .html('Loading GraphFi...')
-    .css({
-      position: 'absolute',
-      top: '2em',
-      padding: '1em',
-      left: '0em',
-      'background-color': 'black',
-      color: 'white',
-      'font-weight': 'bold',
-      'z-index': 100,
-    });
+  var loading = $('<div/>').html('Loading GraphFi...').css({
+    position: 'absolute',
+    top: '2em',
+    padding: '1em',
+    left: '0em',
+    'background-color': 'black',
+    color: 'white',
+    'font-weight': 'bold',
+    'z-index': 100,
+  });
   $(bar).append(loading);
 
   var comments = [];
@@ -129,18 +128,18 @@
   function initialize() {
     loading.show();
     loadComments();
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       extractQuotes();
     }, 0);
   }
   function initialize2() {
     // These are called after the lengthy "extractQuotes" operation finishes.
     loading.html('Adding references...');
-    window.setTimeout(function() {
+    window.setTimeout(function () {
       addReferences();
       getOffsets();
       loading.html('Doing a jig...');
-      window.setTimeout(function() {
+      window.setTimeout(function () {
         setUpCanvas();
         setUpInteraction();
         $(window).scroll(); // triggers drawing update.
@@ -158,7 +157,7 @@
   function loadComments() {
     // Get all the comments, and extract data on favorites, author, time
     // and text.
-    $('div.comments').each(function(i, comment) {
+    $('div.comments').each(function (i, comment) {
       if (i < comments.length) {
         // If we've already parsed this comment, no need to do it again.
         return;
@@ -169,15 +168,11 @@
         var num = 0;
         var author = '';
         var time = '';
-        c.find('span.smallcopy a').each(function(i, a) {
+        c.find('span.smallcopy a').each(function (i, a) {
           var href = $(a).attr('href');
           if (href) {
             if (href.indexOf('/favorited/') != -1) {
-              num = parseInt(
-                $(a)
-                  .text()
-                  .replace(/[^\d]/, '')
-              );
+              num = parseInt($(a).text().replace(/[^\d]/, ''));
             } else if (href.indexOf('/user/') != -1) {
               author = $(a).text();
             } else if (href.indexOf('#') != -1) {
@@ -219,12 +214,8 @@
       var quoteElements = {};
       // "replies" is a map of quote indices that quote this comment
       // get plain text quotes
-      c.children('blockquote, i, em').each(function(k, el) {
-        var text = $.trim(
-          $(el)
-            .text()
-            .replace(/\s+/g, ' ')
-        );
+      c.children('blockquote, i, em').each(function (k, el) {
+        var text = $.trim($(el).text().replace(/\s+/g, ' '));
         // heuristic: avoid short things that are probably just emphasis
         if (text.length > 20) {
           for (var j = 0; j < i; j++) {
@@ -244,7 +235,7 @@
         }
       });
       // get linked references that lack textual references
-      c.children('a').each(function(k, el) {
+      c.children('a').each(function (k, el) {
         var href = $(el).attr('href');
         if (href && href.indexOf('#') != -1) {
           var ref_id = '#' + href.split('#')[1];
@@ -275,14 +266,14 @@
   function addReferences() {
     // Add quote references inline in comments.
     $('.graphfi').remove();
-    $.each(comments, function(i, comment) {
+    $.each(comments, function (i, comment) {
       // back references
       var quoteElements = cdata[i].quoteElements;
       if (!quoteElements) {
         return false;
       }
       for (var q in quoteElements) {
-        (function(q) {
+        (function (q) {
           var backReference = $('<a/>')
             .attr({
               class: 'graphfi',
@@ -291,12 +282,12 @@
             })
             .html('&gt;&nbsp;');
           backReference.hover(
-            function() {
+            function () {
               tooltip.show();
               tooltip.html(comments[q].html());
               tooltip.css('top', backReference.offset().top + 25 + 'px');
             },
-            function() {
+            function () {
               tooltip.hide();
             }
           );
@@ -312,7 +303,7 @@
             class: 'graphfi replies',
           })
           .html(replies.length + (replies.length > 1 ? ' replies' : ' reply'));
-        a.click(function() {
+        a.click(function () {
           var replyBoxClass = 'graphfi-replies-c' + i;
           function removeIt() {
             $('.' + replyBoxClass).remove();
@@ -354,17 +345,17 @@
                 'z-index': 1,
               })
           );
-          $.each(replies, function(r, replyIndex) {
+          $.each(replies, function (r, replyIndex) {
             var reply = comments[replyIndex];
             var clone = reply.clone(true);
             clone.addClass('graphfi-clone content');
-            clone.find('a.replies').click(function() {
+            clone.find('a.replies').click(function () {
               div.remove();
               window.location.href = cdata[replyIndex].link;
               $(reply).mouseover();
               return false;
             });
-            clone.bind('click.graphfi', function() {
+            clone.bind('click.graphfi', function () {
               $('.graphfi-clone').css('box-shadow', 'none');
               clone.css({
                 'box-shadow': '0px 0px 12px ' + selectingShadowColor,
@@ -388,11 +379,9 @@
           $('body').append(div);
           return false;
         });
-        comment.find('span.smallcopy').append(
-          $('<span/>')
-            .attr('class', 'graphfi')
-            .append('[', a, ']')
-        );
+        comment
+          .find('span.smallcopy')
+          .append($('<span/>').attr('class', 'graphfi').append('[', a, ']'));
       }
     });
   }
@@ -411,7 +400,7 @@
     }
     maxCommentsAtOnce = Math.min(
       comments.length,
-      parseInt(Math.floor(canvasHolder.height() / minBarHeight))
+      Math.floor(canvasHolder.height() / minBarHeight)
     );
     cChunk = comments.length
       ? canvasHolder.height() / maxCommentsAtOnce
@@ -564,18 +553,18 @@
    ****************************************************/
   function setUpInteraction() {
     canvas.unbind('.graphfi');
-    canvas.bind('mouseout.graphfi', function() {
+    canvas.bind('mouseout.graphfi', function () {
       hovered = null;
       draw();
       tooltip.hide();
     });
-    canvas.bind('mousemove.graphfi', function(evt) {
+    canvas.bind('mousemove.graphfi', function (evt) {
       if (comments.length == 0) {
         return;
       }
       var y = evt.pageY - canvasPageY;
       var transformed = y * (cHeight / canvasPageHeight);
-      var newhovered = parseInt(transformed / cChunk);
+      var newhovered = Math.trunc(transformed / cChunk);
       if (newhovered != hovered) {
         hovered = newhovered;
         draw();
@@ -594,10 +583,10 @@
         tooltip.css('top', tooltipY + 'px');
       }
     });
-    canvas.bind('click.graphfi', function(evt) {
+    canvas.bind('click.graphfi', function (evt) {
       var y = evt.pageY - canvasPageY;
       var transformed = y * (cHeight / canvasPageHeight);
-      var newselected = parseInt(transformed / cChunk);
+      var newselected = Math.trunc(transformed / cChunk);
       if (newselected != selected) {
         selected = newselected;
         draw();
@@ -608,8 +597,8 @@
       tooltip.hide();
     });
     $(comments).unbind('.graphfi');
-    $(comments).each(function(i, el) {
-      $(el).bind('click.graphfi', function() {
+    $(comments).each(function (i, el) {
+      $(el).bind('click.graphfi', function () {
         var pos = i - minComment;
         if (pos != selected) {
           selected = pos;
@@ -619,7 +608,7 @@
     });
     $(window).unbind('.graphfi');
 
-    $(window).bind('scroll.graphfi', function() {
+    $(window).bind('scroll.graphfi', function () {
       canvasPageY = canvas.offset().top;
       getCommentsInViewport();
       if (maxCommentsAtOnce < comments.length) {
@@ -641,14 +630,14 @@
       }
       draw();
     });
-    $(window).bind('resize.graphfi', function() {
+    $(window).bind('resize.graphfi', function () {
       setUpCanvas(); // establishes new "maxCommentsAtOnce"
       $(window).scroll(); // establishes new "minComment"
       getOffsets(); // re-acquires positions
       draw(); //
     });
     var nodeInsertedTimeout;
-    $(window).bind('DOMNodeInserted.graphfi', function(event) {
+    $(window).bind('DOMNodeInserted.graphfi', function (event) {
       if ($(event.relatedNode).is('#newcomments')) {
         if (nodeInsertedTimeout) {
           clearTimeout(nodeInsertedTimeout);
