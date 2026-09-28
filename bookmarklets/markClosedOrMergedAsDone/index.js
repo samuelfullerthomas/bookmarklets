@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const notificationTypesByClassName = [
     '.octicon-git-merge', // merged pull requests
     '.octicon-git-pull-request-closed', // closed pull requests
@@ -15,5 +15,9 @@
     );
   });
 
-  document.querySelector('.notifications-list [title="Done"]').click();
+  /** @type {HTMLElement | null} */
+  const doneButton = document.querySelector(
+    '.notifications-list [title="Done"]'
+  );
+  doneButton?.click();
 })();

@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const notificationTypesByClassName = [
     '.octicon-git-merge', // merged pull requests
     '.octicon-git-pull-request-closed', // closed pull requests

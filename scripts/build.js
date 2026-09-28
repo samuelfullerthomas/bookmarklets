@@ -1,17 +1,25 @@
-const { join } = require('path');
-const { statSync, readdirSync, writeFileSync } = require('fs');
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
 
-const { createHTML, createBookmarkletsHTML } = require('./util');
+import site from '../site.config.js';
+import {
+  ROOT_DIR,
+  buildBookmarklet,
+  listBookmarklets,
+  readBookmarklet,
+} from './bookmarklets.js';
+import { renderBookmarklet, renderPage } from './page.js';
 
-async function run() {
-  const bookmarkletsList = readdirSync(
-    join(__dirname, '../bookmarklets')
-  ).filter(f => statSync(join(__dirname, '../bookmarklets', f)).isDirectory());
+const OUT_DIR = join(ROOT_DIR, 'dist');
 
-  const bookmarkletHTML = await createBookmarkletsHTML(bookmarkletsList);
-  const webpageHTML = createHTML(bookmarkletHTML);
+const bookmarkletsHTML = await Promise.all(
+  listBookmarklets().map(async name =>
+    renderBookmarklet({
+      docs: readBookmarklet(name).docs,
+      url: await buildBookmarklet(name),
+    })
+  )
+);
 
-  writeFileSync('index.html', webpageHTML);
-}
-
-run();
+mkdirSync(OUT_DIR, { recursive: true });
+writeFileSync(join(OUT_DIR, 'index.html'), renderPage(site, bookmarkletsHTML));

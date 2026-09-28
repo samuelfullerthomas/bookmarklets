@@ -4,9 +4,13 @@
 
   const CONTEXT_MENU_ITEM_SELECTOR = '[role="menuitemradio"]';
 
+  /** @param {string} selector */
+  const queryAll = selector =>
+    /** @type {HTMLElement[]} */ ([...document.querySelectorAll(selector)]);
+
   const reviewsOrPhotos = [
-    ...document.querySelectorAll(REVIEWS_CONTEXT_MENU_SELECTOR),
-    ...document.querySelectorAll(PHOTOS_CONTEXT_MENU_SELECTOR),
+    ...queryAll(REVIEWS_CONTEXT_MENU_SELECTOR),
+    ...queryAll(PHOTOS_CONTEXT_MENU_SELECTOR),
   ];
 
   for (let i = 0; i < reviewsOrPhotos.length; i++) {
@@ -18,15 +22,13 @@
   }
 
   async function deleteContribution() {
-    [...document.querySelectorAll(CONTEXT_MENU_ITEM_SELECTOR)].forEach(
-      menuItemButton => {
-        const buttonHTML = menuItemButton.innerHTML.toLowerCase();
-        const isDeleteButton = /delete|elimina/i.test(buttonHTML);
-        if (isDeleteButton) {
-          menuItemButton.click();
-        }
+    queryAll(CONTEXT_MENU_ITEM_SELECTOR).forEach(menuItemButton => {
+      const buttonHTML = menuItemButton.innerHTML.toLowerCase();
+      const isDeleteButton = /delete|elimina/i.test(buttonHTML);
+      if (isDeleteButton) {
+        menuItemButton.click();
       }
-    );
+    });
     await wait(500);
     await confirmDeleteContribution();
   }
